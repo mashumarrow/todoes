@@ -1,0 +1,44 @@
+type Subject {
+  id: ID!
+  name: String!
+  todos: [Todo!]!
+}
+
+type Classroom {
+  id: ID!
+  name: String!
+}
+
+type Schedule {
+  id: ID!
+  subject: Subject!
+  classroom: Classroom!
+  dayOfWeek: String!
+  period: Int!
+}
+
+type Todo {
+  id: ID!
+  title: String!
+  completed: Boolean!
+}
+
+type Query {
+  subjects: [Subject!]!
+  subject(id: ID!): Subject
+  schedules(dayOfWeek: String!): [Schedule!]!
+  todos(subjectID: ID!): [Todo!]!
+}
+
+type Mutation {
+  createSubject(name: String!): Subject!
+  createClassroom(name: String!): Classroom!
+  createSchedule(
+    subjectID: ID!
+    classroomID: ID!
+    dayOfWeek: String!
+    period: Int!
+  ): Schedule!
+  createTodo(subjectID: ID!, title: String!): Todo!
+  toggleTodoComplete(todoID: ID!): Todo!
+}
