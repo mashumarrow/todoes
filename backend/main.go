@@ -3,13 +3,13 @@ package main
 import (
     "log"
     "net/http"
-    
+    "github.com/mashumarrow/todoes/models"
     "github.com/mashumarrow/todoes/handlers"
     "gorm.io/driver/mysql"
     "gorm.io/gorm"
 )
 
-const defaultPort = "8080"
+
 
 
 const defaultPort = "8080"

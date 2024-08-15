@@ -1,33 +1,42 @@
 type Subject {
   id: ID!
   name: String!
-  todos: [Todo!]!
+  todos: [Todo]
 }
 
 type Classroom {
   id: ID!
-  name: String!
+  name: String
+}
+
+enum DayOfWeek {
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
 }
 
 type Schedule {
   id: ID!
-  subject: Subject!
-  classroom: Classroom!
-  dayOfWeek: String!
-  period: Int!
+  subject: Subject
+  classroom: Classroom
+  dayOfWeek: DayOfWeek!
+  period: Int
 }
 
 type Todo {
   id: ID!
-  title: String!
-  completed: Boolean!
+  title: String
+  completed: Boolean
 }
 
 type Query {
   subjects: [Subject!]!
   subject(id: ID!): Subject
-  schedules(dayOfWeek: String!): [Schedule!]!
-  todos(subjectID: ID!): [Todo!]!
+  schedules(dayOfWeek: DayOfWeek!): [Schedule!]!
+  todos(subjectID: ID!): [Todo]
 }
 
 type Mutation {
@@ -36,7 +45,7 @@ type Mutation {
   createSchedule(
     subjectID: ID!
     classroomID: ID!
-    dayOfWeek: String!
+    dayOfWeek: DayOfWeek!
     period: Int!
   ): Schedule!
   createTodo(subjectID: ID!, title: String!): Todo!

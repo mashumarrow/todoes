@@ -6,15 +6,16 @@ package graph
 import (
 	"context"
 	"fmt"
-	
-	"gqlgen_tutorial/graph/generated"
-	"gqlgen_tutorial/graph/model"
+
+	//"github.com/mashumarrow/todoes/graph/generated"
+	"github.com/mashumarrow/todoes/graph/model"
 )
 
+// ミューテーションcreateTodoが呼ばれた際に実行されるコード
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
 	panic(fmt.Errorf("not implemented"))
 }
-
+// クエリtodosが呼ばれた際に実行されるコード
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
 	panic(fmt.Errorf("not implemented"))
 }
